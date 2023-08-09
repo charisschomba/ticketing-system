@@ -14,7 +14,8 @@ spec:
     spec:
       containers:
         - name: auth
-          image: chariss/ticketing-auth
+#          image: chariss/ticketing-auth
+          image: us.gcr.io/ticekting-dev-395414/auth
 ---
 apiVersion: v1
 kind: Service
