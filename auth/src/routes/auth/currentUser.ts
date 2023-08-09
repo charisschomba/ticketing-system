@@ -5,7 +5,7 @@ const router = Router();
 router.route('/currentuser')
     .get((req: Request, res: any) => {
         res.json({
-            msg: "Hello"
+            msg: "Hello111"
         })
     })
 
