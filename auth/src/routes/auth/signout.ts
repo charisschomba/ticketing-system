@@ -1,12 +1,10 @@
-import {Request, Response, Router} from "express";
+import { Request, Response, Router } from "express";
 
 const router = Router();
 
-router.route('/signout')
-    .post((req: Request, res: any) => {
-        res.json({
-            msg: "Hello"
-        })
-    })
+router.route("/signout").post((req: Request, res: Response) => {
+  req.session = null;
+  res.send({});
+});
 
 export default router;

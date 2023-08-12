@@ -1,12 +1,10 @@
-import {Request, Response, Router} from "express";
+import { Request, Response, Router } from "express";
+import { currentUser } from "../../middlewares/current-user";
 
 const router = Router();
 
-router.route('/currentuser')
-    .get((req: Request, res: any) => {
-        res.json({
-            msg: "Hello111"
-        })
-    })
+router.route("/currentuser").get(currentUser, (req: Request, res: any) => {
+    return res.send(req.currentUser) || res.send(null)
+});
 
 export default router;
