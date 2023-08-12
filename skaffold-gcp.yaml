@@ -3,7 +3,6 @@ kind: Config
 build:
   artifacts:
     - image: us.gcr.io/ticekting-dev-395414/auth
-      #    - image: chariss/ticketing-auth
       context: auth
       sync:
         manual:
@@ -11,8 +10,6 @@ build:
             dest: .
       docker:
         dockerfile: Dockerfile
-  #  local:
-  #    push: false
   googleCloudBuild:
     projectId: ticekting-dev-395414
 manifests:

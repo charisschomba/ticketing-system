@@ -1,31 +1,32 @@
 import express, { NextFunction, Request, Response } from "express";
-import 'express-async-errors';
+import "express-async-errors";
 import { json } from "body-parser";
 import morgan from "morgan";
-
+import mongoose from "mongoose";
 import routes from "./routes";
 import { errorHandler } from "./middlewares/error.handlers";
 import NotFoundError from "./errors/not-found-error";
+import { DatabaseConnectionError } from "./errors/database-connection-error";
 
 const app = express();
 
 app.use(json());
-app.use(
-  morgan(function (tokens, req, res) {
-    return [
-      tokens.method(req, res),
-      tokens.url(req, res),
-      tokens.status(req, res),
-      "-",
-      tokens["response-time"](req, res),
-      "ms",
-    ].join(" ");
-  })
-);
+app.use(morgan("tiny"));
 
 routes(app);
-app.all("*", async (req: Request, res: Response, next: NextFunction) => {
-  throw new NotFoundError();
+app.all("*", async (req: Request, res: Response) => {
+   throw new NotFoundError();
 });
 app.use(errorHandler);
+const start = async () => {
+  try {
+    await mongoose.connect("mongodb://auth-mongo-srv:27017/ticketing-auth")
+    console.log("Connected to mongodb")
+  } catch (error) {
+    throw new DatabaseConnectionError()
+  }
+ 
+}
 app.listen(3000, () => console.log("Listening on port 3000"));
+
+start();

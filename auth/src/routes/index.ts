@@ -4,10 +4,10 @@ import signout from "./auth/signout";
 import signup from "./auth/signup";
 
 const routes = (app: any) => {
-  app.use("/api/v1/users", currentUser);
-  app.use("/api/v1/", signin);
-  app.use("/api/v1/", signup);
-  app.use("/api/v1/", signout);
+  app.use("/api/v1/auth", currentUser);
+  app.use("/api/v1/auth", signin);
+  app.use("/api/v1/auth", signup);
+  app.use("/api/v1/auth", signout);
 };
 
 export default routes;
