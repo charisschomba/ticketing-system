@@ -1,8 +1,10 @@
-import { NextFunction, Request, Response, Router } from "express";
-import { body, validationResult } from "express-validator";
-import { RequestValidationError } from "../../errors/request-validation-error";
+import { Request, Response, Router } from "express";
+import jwt from "jsonwebtoken";
+import { body } from "express-validator";
 import { User } from "../../models/users";
 import BadRequestError from "../../errors/bad-request-error";
+import { validateRequest } from "../../middlewares/validate-request";
+import Password from "../../services/pasword";
 
 const router = Router();
 
@@ -15,26 +17,34 @@ router
         .trim()
         .isLength({ min: 4 })
         .withMessage("Password must be at least 4 characters"),
-    ],
+    ], validateRequest,
     async (req: Request, res: any) => {
-      const errors = validationResult(req);
-      if (!errors.isEmpty()) {
-        throw new RequestValidationError(errors.array());
-      }
-
+  
       const { email, password } = req.body;
 
-      const existingUser = await User.findOne({ email })
+      const existingUser = await User.findOne({ email });
 
       if (existingUser) {
-          throw new BadRequestError("Email already in user")
+        throw new BadRequestError("Email already in user");
       }
-
-      const user = User.build({ email, password })
+    
+      const hashedPassword = await Password.toHash(password);
+       
+      const user = User.build({ email, password: hashedPassword });
 
       await user.save();
 
-      res.status(201).send(user)
+      const userJwt: any = jwt.sign({
+        id: user.id,
+        email: user.email,
+      }, process.env.JWT_KEY!)
+
+
+      req.session = {
+        jwt: userJwt
+      }
+
+      res.status(201).send(user);
     }
   );
 
