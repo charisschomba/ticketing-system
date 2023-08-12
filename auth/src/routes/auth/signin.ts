@@ -19,7 +19,7 @@ router
         .withMessage("Password is required"),
     ],
     validateRequest,
-    async (req: Request, res: any) => {
+    async (req: Request, res: Response) => {
       const { email, password } = req.body;
 
       const user = await User.findOne({ email });
@@ -34,7 +34,7 @@ router
         throw new BadRequestError("Invalid credentials");
       }
 
-      const userJwt: any = jwt.sign(
+      const userJwt: string = jwt.sign(
         {
           id: user.id,
           email: user.email,

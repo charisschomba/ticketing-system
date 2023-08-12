@@ -3,7 +3,7 @@ import { currentUser } from "../../middlewares/current-user";
 
 const router = Router();
 
-router.route("/currentuser").get(currentUser, (req: Request, res: any) => {
+router.route("/currentuser").get(currentUser, (req: Request, res: Response) => {
     return res.send(req.currentUser) || res.send(null)
 });
 

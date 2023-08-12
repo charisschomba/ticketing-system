@@ -18,7 +18,7 @@ router
         .isLength({ min: 4 })
         .withMessage("Password must be at least 4 characters"),
     ], validateRequest,
-    async (req: Request, res: any) => {
+    async (req: Request, res: Response) => {
   
       const { email, password } = req.body;
 
@@ -34,7 +34,7 @@ router
 
       await user.save();
 
-      const userJwt: any = jwt.sign({
+      const userJwt: string = jwt.sign({
         id: user.id,
         email: user.email,
       }, process.env.JWT_KEY!)
