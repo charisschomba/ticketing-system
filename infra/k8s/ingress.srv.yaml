@@ -22,9 +22,9 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: web
+                name: client-srv
                 port:
-                  number: 8080
+                  number: 3000
 
           - path: /v2
             pathType: Prefix
