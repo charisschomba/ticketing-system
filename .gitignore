@@ -1,5 +1,6 @@
 /auth/node_modules
 /client/node_modules
+/client/.next/
 .idea
 auth/yarn-error.log
 .commands
