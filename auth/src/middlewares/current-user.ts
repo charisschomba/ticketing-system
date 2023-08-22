@@ -3,6 +3,7 @@ import jwt from "jsonwebtoken";
 
 export const currentUser = (req: Request, res: Response, next: NextFunction) => {
   if (!req.session?.jwt) {
+      req.currentUser = null;
     return next();
   }
   try {
@@ -23,7 +24,7 @@ interface UserPayload {
 declare global {
     namespace Express {
         interface Request {
-        currentUser?: UserPayload;
+        currentUser?: UserPayload | null;
         }
     }
 }

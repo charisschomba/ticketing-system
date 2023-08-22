@@ -1,5 +1,5 @@
 import { useState } from "react";
-import axios from "axios";
+import { useRouter } from 'next/router'
 import { useRequest } from "../../hooks/use-request";
 
 export default () => {
@@ -9,8 +9,10 @@ export default () => {
     url: "/api/v1/auth/signup",
     body: { password, email },
     method: "post",
+    onSuccess: () => router.push("/")
   });
 
+  const router = useRouter();
   const handleSubmit = (event) => {
     event.preventDefault();
     makeRequest();
