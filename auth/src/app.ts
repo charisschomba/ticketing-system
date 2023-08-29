@@ -4,8 +4,7 @@ import { json } from "body-parser";
 import morgan from "morgan";
 import cookieSession from "cookie-session";
 import routes from "./routes";
-import { errorHandler } from "./middlewares/error.handlers";
-import NotFoundError from "./errors/not-found-error";
+import { errorHandler, NotFoundError } from "@karissa32/common";
 
 
 const app = express();

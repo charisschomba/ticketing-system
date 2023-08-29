@@ -994,6 +994,19 @@
     "@jridgewell/resolve-uri" "^3.1.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
 
+"@karissa32/common@^1.0.9":
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/@karissa32/common/-/common-1.0.9.tgz#5fd859f1c703ed9ce8d40c92b13bd3971acbd696"
+  integrity sha512-pOKEWVQQMX6flkTby3LA0MgApWXmsuP9aulNkuwjpxwDjMcHg75CYfR8+hU4KKzcnqbMVqKpdAcCZJtKMYveJw==
+  dependencies:
+    "@types/cookie-session" "^2.0.44"
+    "@types/express" "^4.17.17"
+    "@types/jsonwebtoken" "^9.0.2"
+    cookie-session "^2.0.0"
+    express "^4.18.2"
+    express-validator "^7.0.1"
+    jsonwebtoken "^9.0.1"
+
 "@sinclair/typebox@^0.27.8":
   version "0.27.8"
   resolved "https://registry.yarnpkg.com/@sinclair/typebox/-/typebox-0.27.8.tgz#6667fac16c436b5434a387a34dedb013198f6e6e"
