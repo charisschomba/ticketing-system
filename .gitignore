@@ -4,3 +4,5 @@
 .idea
 auth/yarn-error.log
 .commands
+/common/node_modules
+/common/build

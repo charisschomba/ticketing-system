@@ -2,6 +2,7 @@ import axios from "axios";
 import buildClient from "../api/build-client"
 
 export const getServerSideProps = async ({req}) => {
+    console.log("LANDING")
       const baseUrl = 'http://ingress-nginx-controller.ingress-nginx.svc.cluster.local'
       const {data: {currentUser}} = await axios.get(`${baseUrl}/api/v1/auth/currentuser`, {
           headers: req.headers

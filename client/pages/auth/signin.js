@@ -1,0 +1,43 @@
+import { useState } from "react";
+import { useRouter } from 'next/router'
+import { useRequest } from "../../hooks/use-request";
+
+export default () => {
+  const [email, setEmail] = useState(null);
+  const [password, setPassword] = useState(null);
+  const { makeRequest, error } = useRequest({
+    url: "/api/v1/auth/signin   ",
+    body: { password, email },
+    method: "post",
+    onSuccess: () => router.push("/")
+  });
+
+  const router = useRouter();
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    makeRequest();
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <h1>Sign In</h1>
+      <div className="form-group">
+        <label>Email</label>
+        <input
+          className="form-control"
+          onChange={(e) => setEmail(e.target.value)}
+        />
+      </div>
+      <div className="form-group">
+        <label>Password</label>
+        <input
+          type="password"
+          className="form-control"
+          onChange={(e) => setPassword(e.target.value)}
+        />
+      </div>
+      {error}
+      <button className="btn btn-primary">Sign In</button>
+    </form>
+  );
+};
