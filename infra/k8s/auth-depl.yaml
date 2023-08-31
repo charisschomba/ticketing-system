@@ -17,6 +17,8 @@ spec:
 #          image: chariss/ticketing-auth
           image: us.gcr.io/ticekting-dev-395414/auth
           env:
+            - name: MONGO_URI
+              value: "mongodb://auth-mongo-srv:27017/ticketing-auth"
             - name: JWT_KEY
               valueFrom:
                 secretKeyRef:
