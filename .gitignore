@@ -6,3 +6,4 @@ auth/yarn-error.log
 .commands
 /common/node_modules
 /common/build
+/tickets/node_modules
