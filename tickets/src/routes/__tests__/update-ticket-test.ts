@@ -48,7 +48,7 @@ it('returns a 400 if the user provides an invalid title or price', async () => {
     const cookie = global.signin();
 
     const response = await request(app)
-        .post('/api/tickets')
+        .post('/api/v1/tickets')
         .set('Cookie', cookie)
         .send({
             title: 'asldkfj',
@@ -56,7 +56,7 @@ it('returns a 400 if the user provides an invalid title or price', async () => {
         });
 
     await request(app)
-        .put(`/api/tickets/${response.body.id}`)
+        .put(`/api/v1/tickets/${response.body.id}`)
         .set('Cookie', cookie)
         .send({
             title: '',
@@ -65,7 +65,7 @@ it('returns a 400 if the user provides an invalid title or price', async () => {
         .expect(400);
 
     await request(app)
-        .put(`/api/tickets/${response.body.id}`)
+        .put(`/api/v1/tickets/${response.body.id}`)
         .set('Cookie', cookie)
         .send({
             title: 'alskdfjj',

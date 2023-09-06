@@ -15,7 +15,7 @@ spec:
       containers:
         - name: tickets
           #          image: chariss/ticketing-auth
-          image: us.gcr.io/ticekting-dev-395414/auth
+          image: us.gcr.io/ticekting-dev-395414/tickets
           env:
             - name: MONGO_URI
               value: "mongodb://tickets-mongo-srv:27017/tickets"

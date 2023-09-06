@@ -1,12 +1,11 @@
-import Router, { Request, Response } from "express";
+import { Request, Response,Router } from "express";
 import { requireAuth, validateRequest } from "@karissa32/common";
 import { body } from "express-validator";
 import { Ticket } from "../../models/ticket";
 
 const router = Router();
 
-router.post(
-  "/tickets",
+router.route("/tickets").post(
   requireAuth,
   [
     body("title").not().isEmpty().withMessage("Title is required"),

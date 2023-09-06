@@ -10,8 +10,7 @@ import { Ticket } from '../../models/ticket';
 
 const router = express.Router();
 
-router.put(
-    '/tickets/:id',
+router.route('/tickets/:id').put(
     requireAuth,
     [
         body('title').not().isEmpty().withMessage('Title is required'),
@@ -19,8 +18,9 @@ router.put(
             .isFloat({ gt: 0 })
             .withMessage('Price must be provided and must be greater than 0'),
     ],
+    validateRequest,
     async (req: Request, res: Response) => {
-        const ticket = await Ticket.findById(req.params.id);
+        let ticket = await Ticket.findById(req.params.id);
 
         if (!ticket) {
             throw new NotFoundError();
@@ -29,7 +29,10 @@ router.put(
         if(req.currentUser!.id !== ticket.userId) {
             throw new NotAuthorizedError();
         }
-        res.send(ticket);
+        ticket.set(req.body)
+        await ticket.save()
+        
+        res.send(ticket)
     }
 );
 

@@ -17,7 +17,7 @@ it('should fetch all tickets', async () => {
     await createTicket();
     await createTicket();
 
-    const response = await request(app).get("/api/vi/tickets").send();
+    const response = await request(app).get("/api/v1/tickets").send();
 
     expect(response.body.length).toEqual(3)
 
