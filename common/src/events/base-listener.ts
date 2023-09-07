@@ -6,7 +6,7 @@ interface Events {
   data: any;
 }
 
-abstract class Listener<T extends Events> {
+export abstract class Listener<T extends Events> {
     abstract subject: T['subject'];
     abstract queueGroupName: string;
     abstract onMessage(data: T['data'], mgs: Message): void;
@@ -47,5 +47,3 @@ abstract class Listener<T extends Events> {
         : JSON.parse(data.toString("utf-8"));
     };
   }
-
-  export default Listener;
