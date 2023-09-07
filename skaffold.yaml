@@ -30,4 +30,4 @@ build:
     push: false
 manifests:
   rawYaml:
-    - ./infra/k8s/*
+    - ./infra/k8slocal/*
