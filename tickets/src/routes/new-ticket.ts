@@ -1,9 +1,10 @@
 import { Request, Response, Router } from "express";
-import { requireAuth, validateRequest } from "@karissa32/common";
+import { Listener, Subjects, TicketCreatedEvent, requireAuth, validateRequest } from "@karissa32/common";
 import { body } from "express-validator";
 import { Ticket } from "../../models/ticket";
 import { TicketCreatedPusblisher } from "../events/publishers/ticket-created";
 import { natsWrapper } from "../nats-wrapper";
+import { Message } from "node-nats-streaming";
 
 const router = Router();
 
