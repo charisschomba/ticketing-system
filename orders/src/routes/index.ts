@@ -1,7 +1,7 @@
-import newOrder from "./newOrder"
-import getOrder from "./getOrder";
-import fetchOrders from "./fetchOrders";
-import deleteOrder from "./deleteOrder";
+import newOrder from "./new-order"
+import getOrder from "./get-order";
+import fetchOrders from "./fetch-order";
+import deleteOrder from "./delete-order";
 
 const routes = (app: any) => {
     app.use("/api/v1", newOrder)
