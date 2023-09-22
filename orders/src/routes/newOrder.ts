@@ -1,6 +1,6 @@
 import Router, { Request, Response } from "express"
 import mongoose from "mongoose";
-// import { Ticket } from "../../models/ticket";
+import { Order } from "../models/order";
 import {NotFoundError, requireAuth, validateRequest} from "@karissa32/common";
 import { body } from "express-validator";
 

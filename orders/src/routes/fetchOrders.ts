@@ -1,5 +1,5 @@
 import Router, { Request, Response } from "express"
-// import { Ticket } from "../../models/ticket";
+import { Order } from "../models/order";
 import {NotFoundError} from "@karissa32/common";
 
 const router = Router();
