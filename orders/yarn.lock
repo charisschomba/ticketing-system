@@ -994,10 +994,10 @@
     "@jridgewell/resolve-uri" "^3.1.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
 
-"@karissa32/common@^1.1.11":
-  version "1.1.11"
-  resolved "https://registry.yarnpkg.com/@karissa32/common/-/common-1.1.11.tgz#a8c33039821db63ef3cd4d3d51f0715e5480ed4d"
-  integrity sha512-P7XfmaRFxiA34jybHlp+pdly4KeZ+FM9Yi+zQGh/Gn0utWQUFZ1ZUPQTg1vA1ApU9sUGzDzOHTfZ5CDLD3Clpw==
+"@karissa32/common@^1.1.12":
+  version "1.1.12"
+  resolved "https://registry.yarnpkg.com/@karissa32/common/-/common-1.1.12.tgz#3aa831f34775b809695a40b231fbf6d67cf87269"
+  integrity sha512-nZahMTCFOjHOLI00dcd6uZSSY4aT5leXU6lphJawa1seoq0UxQpjHQSjoUsj0TmZgRJL9wDhx7f0a4glG7JE6A==
   dependencies:
     "@types/cookie-session" "^2.0.44"
     "@types/express" "^4.17.17"
