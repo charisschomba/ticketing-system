@@ -57,7 +57,8 @@ router.route("/orders").post(
       ticket: {
         id:order.ticket.id,
         price: ticket.price
-      }
+      },
+      version: order.version
     })
 
     return res.status(201).send(order);
