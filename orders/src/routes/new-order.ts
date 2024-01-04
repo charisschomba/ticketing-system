@@ -49,13 +49,13 @@ router.route("/orders").post(
 
     await order.save();
 
-    new OrderCreatedPublisher(natsWrapper.client).publish({
+    await new OrderCreatedPublisher(natsWrapper.client).publish({
       id: order.id,
       status: order.status,
       userId: order.userId,
       expiresAt: order.expiresAt.toISOString(),
       ticket: {
-        id:order.ticket.id,
+        id: order.ticket.id,
         price: ticket.price
       },
       version: order.version

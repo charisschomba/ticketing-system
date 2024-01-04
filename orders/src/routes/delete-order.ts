@@ -30,12 +30,12 @@ router
 
     await order.save();
 
-    new OrderCancelledPublisher(natsWrapper.client).publish({
-      id: order.id,
-      ticket: {
-        id: order.ticket.id
-      },
-      version: order.version
+    await new OrderCancelledPublisher(natsWrapper.client).publish({
+        id: order.id,
+        ticket: {
+            id: order.ticket.id
+        },
+        version: order.version
     })
 
     return res.status(204).send(order);
