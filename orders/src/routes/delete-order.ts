@@ -38,7 +38,7 @@ router
         version: order.version
     })
 
-    return res.status(204).send(order);
+    return res.status(200).send(order);
   });
 
 export default router;

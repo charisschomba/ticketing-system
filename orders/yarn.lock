@@ -995,9 +995,9 @@
     "@jridgewell/sourcemap-codec" "^1.4.14"
 
 "@karissa32/common@^1.1.15":
-  version "1.1.15"
-  resolved "https://registry.yarnpkg.com/@karissa32/common/-/common-1.1.15.tgz#a645002b3599fe904a1fa2651d7e56560bc27c8f"
-  integrity sha512-axlPxPvtj/FJhdR1W3jEKzwqzdOSy47Lakw5Dn9MOnw9b8L4xBTgOYcgZ6FeABbyW8GwZsw0BGyFhfWvHHki4w==
+  version "1.1.16"
+  resolved "https://registry.yarnpkg.com/@karissa32/common/-/common-1.1.16.tgz#c52484a54c0dc4da3384e60a01f394309e5ded2f"
+  integrity sha512-OTVLQJek7cNaR4BIMTr6JGUkgQWVQg419kV16p068ZNYEMLF2xlcO7FQiYJFA2Lf7lp4iX9gfUtSwyyj+B3Q9A==
   dependencies:
     "@types/cookie-session" "^2.0.44"
     "@types/express" "^4.17.17"
