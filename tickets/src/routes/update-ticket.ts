@@ -4,7 +4,7 @@ import {
   validateRequest,
   NotFoundError,
   requireAuth,
-  NotAuthorizedError,
+  NotAuthorizedError, BadRequestError,
 } from "@karissa32/common";
 import { Ticket } from "../../models/ticket";
 import { TicketUpdatedPusblisher } from "../events/publishers/ticket-updated";
@@ -28,6 +28,9 @@ router
 
       if (!ticket) {
         throw new NotFoundError();
+      }
+      if(ticket.orderId) {
+        throw  new BadRequestError("Cannot edit a reserved ticket")
       }
       //@ts-ignore
       if (req.currentUser!.id !== ticket.userId) {
